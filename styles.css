@@ -17,6 +17,8 @@
   width: 20%;
   display: flex;
   justify-content: left;
+  align-items: center;
+  margin: 20px;
 }
 
 .buttonTabs {
