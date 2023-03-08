@@ -1,112 +1,241 @@
-.tabs {
-    font-family: 'Poppins',sans-serif;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
+/* #region -- RESET CSS */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
     min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* #endregion */
+
+/* #region -- VARIABLES */
+:root {
+    --contrast: 80%;
+    --grayscale: 30%;
+    --opacity: 0.10;
+
+    --primary-color: rgb(243, 160, 35);
+    --secondary-color: rgb(0, 0, 0);
+    --tertiary-color: rgb(235, 235, 235);
+}
+
+/* #endregion */
+
+/* #region -- BASE ELEMENT */
+body {
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    justify-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    width: 100vw;
+    padding: 5px;
+}
+
+content {
     text-align: center;
 }
 
-.navbar {
-    display: flex;
-    width: 100%;
-}
-
-.siteTitle {
-  width: 20%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin: 20px;
-}
-
-.buttonTabs {
-  width: 60%;
-  display: flex;
-  justify-content: center;
-}
-
-.tab-btn {
-  background-color: rgb(255, 255, 255, 0);
-  border: none;
-  border-bottom: 2px solid rgb(0, 0, 0);
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  padding: 10px 0;
-  margin: 10px 0;
-  outline: none;
-  width: 20%;
-}
-
-.tab-btn-active {
-  border-bottom: 3px solid rgb(243, 160, 35);
-  color: rgb(243, 160, 35);
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0)
-}
-
-.linkIcons {
-  width: 20%;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-.linkIcons .fa {
-  color: rgb(0, 0, 0);
-  font-size: 32px;
-  margin: 5px;
-}
-
-.animated {
-  animation-name: fadeOutRight;
-  animation-duration: 1s;
-}
-
-@keyframes fadeOutRight {
-  0% {
-     opacity: 0;
-     transform: translateY(-20px);
-  }
-  100% {
-     opacity: 1;
-     transform: translateY(0);
-  }
-} 
-
-.form {
-  align-items: center;
-  min-width: 500px;
-}
-
 input {
-  font-family: 'Poppins',sans-serif;
-  color: rgb(0, 0, 0);
-  background-color: rgb(235, 235, 235);
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid rgb(243, 160, 35);
-  margin-bottom: 5px;
-  padding: 10px 15px;
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    margin-bottom: 5px;
+    padding: 10px 15px;
 }
 
 textarea {
-  font-family: 'Poppins',sans-serif;
-  color: rgb(0, 0, 0);
-  background-color: rgb(235, 235, 235);
-  border: none;
-  border-bottom: 1px solid rgb(243, 160, 35);
-  width: 100%;
-  margin-bottom: 5px;
-  padding: 10px 15px;
-  min-height: 150px;
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    min-height: 150px;
+}
+
+body .hidden{
+   display: none;
+}
+/* #endregion */
+
+/* #region -- BACKGROUND */
+.backgroundImage {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(img/background.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    filter:
+        contrast(var(--contrast)) grayscale(var(--grayscale)) opacity(var(--opacity));
+}
+
+/* #endregion */
+
+/* #region -- NAV */
+.leftPanel {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.middlePanel{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0px 20%;
+}
+
+.middlePanel button{
+    width: 100%;
+}
+
+.tab{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    outline: none;
+}
+
+.tab:hover{
+    cursor: pointer;
+}
+
+.active{
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.rightPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.rightPanel i{
+    font-size: 200%;
+}
+
+.rightPanel i:hover{
+    cursor: pointer;
+    color: var(--primary-color);
+}
+/* #endregion */
+
+/* #region -- CONTENT */
+.animated {
+    animation-name: fadeOutRight;
+    animation-duration: 1s;
+}
+
+@keyframes fadeOutRight {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* #endregion */
+
+/* #region -- FORM */
+.form {
+    align-items: center;
+    min-width: 500px;
 }
 
 .buttonForm {
-  font-family: 'Poppins',sans-serif;
-  border: none;
-  border-bottom: 1px solid rgb(243, 160, 35);
-  cursor: pointer;
-  background-color: rgb(255, 255, 255, 0);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0);
 }
+/* #endregion */

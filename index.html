@@ -6,56 +6,53 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://kit.fontawesome.com/d4a44c73dc.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <title>Aurock.me</title>
+        <title>Aurock.dev</title>
     </head>
 
     <body>
-        <div class="tabs">
-            <div class="navbar">
-                <div class="siteTitle">
-                    Aurock
-                </div>
-                <div class="buttonTabs">
-                    <button class="tab1 tab-btn tab-btn-active">.me</button>
-                    <button class="tab2 tab-btn">Projets</button>
-                    <button class="tab3 tab-btn">Contact</button>
-                </div>
-                <div class="linkIcons">
-                    <a href="https://www.linkedin.com/in/jeremy-dussol"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://gitlab.com/users/aurock/projects"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
-                </div>
+        <div class="backgroundImage"></div>
+        <nav>
+            <div class="leftPanel">
+                <h1>Aurock</h1>
             </div>
+            <div class="middlePanel">
+                <button class="tab active" id="tabMe">.me</button>
+                <button class="tab" id="tabDev">.dev</button>
+                <button class="tab" id="tabContact">.contact</button>
+            </div>
+            <div class="rightPanel">
+                <i class="fa fa-linkedin" id="linkLinkedin"></i>
+                <i class="fa fa-gitlab" id="linkGitlab"></i>
+            </div>
+        </nav>
 
-            <div class="content">
-                <div class="tab-content-1 animated">
-                    <h1>Hello'ed.</h1>
-                    <p>Je suis Jeremy Dussol, étudiant en 3ème année à l'EPSI Grenoble.</p>
-                    <p>Je suis aussi alternant pour <a href="https://ct2mc.com/">CT2MC</a> en tant que Concepteur Développeur d'Applications.</p>
-                </div>
-                <div class="tab-content-2 animated">
-                    <h1>Project'ed.</h1>
-                    <h1><a href="https://aurock.dev/">aurock.me</a></h1>
-                    <h1><a href="https://aurock.gitlab.io/condensedflif/" target="_blank">CondensedFLIF</a></h1>
-                    <h1><a href="https://dragoned.herokuapp.com/" target="_blank">Dragon'ed</a></h1>
-                </div>
-                <div class="tab-content-3 animated">
-                    <form class="form" action="https://formspree.io/f/xoqrnrzy" method="POST">
-                        <h1>Contact'ed.</h1>
-                        <div>
-                            <!-- <label>Votre Email :</label> -->
-                            <input placeholder="Votre Email." type="email" name="email" required>
-                        </div>
-                        <div>
-                            <!-- <label>Votre message :</label> -->
-                            <textarea placeholder="Votre message." name="message"></textarea>
-                        </div>
-                        <div>
-                            <button class="buttonForm" type="submit">Envoyer</button>
-                        </div>
-                    </form>
-                </div>
+        <content>
+            <div class="tabContent animated" id="contentMe">
+                <h1>Hello.</h1>
+                <p>Je suis Jeremy Dussol, étudiant en 3ème année à l'EPSI Grenoble.</p>
+                <p>Je suis aussi alternant pour <a href="https://ct2mc.com/">CT2MC</a> en tant que Concepteur Développeur d'Applications.</p>
             </div>
-        </div>
+            <div class="tabContent animated hidden" id="contentDev">
+                <h1>Projets.</h1>
+                <h1><a href="https://aurock.dev/">aurock.me</a></h1>
+                <h1><a href="https://aurock.gitlab.io/condensedflif/" target="_blank">CondensedFLIF</a></h1>
+                <h1><a href="https://dragoned.herokuapp.com/" target="_blank">Dragon'ed</a></h1>
+            </div>
+            <div class="tabContent animated hidden" id="contentContact">
+                <form class="form" action="https://formspree.io/f/xoqrnrzy" method="POST">
+                    <h1>Contact.</h1>
+                    <div>
+                        <input placeholder="Votre Email." type="email" name="email" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Votre message." name="message"></textarea>
+                    </div>
+                    <div>
+                        <button class="buttonForm" type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </content>
     </body>
 </html>
 

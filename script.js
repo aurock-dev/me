@@ -1,35 +1,40 @@
-$('.tab-content-2').hide();
-$('.tab-content-3').hide();
+$(document).on('click', '#linkLinkedin', function(){
+    window.open('https://www.linkedin.com/in/jeremy-dussol','_blank');
+})
 
-$('.tab1').click(function(){
-    $('.tab1').addClass('tab-btn-active');
-    $('.tab-content-1').show();
+$(document).on('click', '#linkGitlab', function(){
+    window.open('https://gitlab.com/users/aurock/projects','_blank');
+})
 
-    $('.tab2').removeClass('tab-btn-active');
-    $('.tab-content-2').hide();
+$(document).on('click', '#tabMe', function(){
+    hideAllContent();
+    inactiveAllTab();
+    this.classList.add('active');
+    document.querySelector('#contentMe').classList.remove('hidden')
+})
 
-    $('.tab3').removeClass('tab-btn-active');
-    $('.tab-content-3').hide();
-});
+$(document).on('click', '#tabDev', function(){
+    hideAllContent();
+    inactiveAllTab();
+    this.classList.add('active');
+    document.querySelector('#contentDev').classList.remove('hidden')
+})
 
-$('.tab2').click(function(){
-    $('.tab1').removeClass('tab-btn-active');
-    $('.tab-content-1').hide();
+$(document).on('click', '#tabContact', function(){
+    hideAllContent();
+    inactiveAllTab();
+    this.classList.add('active');
+    document.querySelector('#contentContact').classList.remove('hidden')
+})
 
-    $('.tab2').addClass('tab-btn-active');
-    $('.tab-content-2').show();
+function hideAllContent(){
+    document.querySelectorAll('.tabContent').forEach((content) => {
+        content.classList.add('hidden');
+    })
+}
 
-    $('.tab3').removeClass('tab-btn-active');
-    $('.tab-content-3').hide();
-});
-
-$('.tab3').click(function(){
-    $('.tab1').removeClass('tab-btn-active');
-    $('.tab-content-1').hide();
-
-    $('.tab2').removeClass('tab-btn-active');
-    $('.tab-content-2').hide();
-    
-    $('.tab3').addClass('tab-btn-active');
-    $('.tab-content-3').show();
-});
+function inactiveAllTab(){
+    document.querySelectorAll('.tab').forEach((button) => {
+        button.classList.remove('active');
+    })
+}
