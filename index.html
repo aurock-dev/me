@@ -11,13 +11,13 @@
 
     <body>
         <nav>
-            <button class="tab active" id="tab-me" onclick="changeTab(this)">.me</button>
-            <button class="tab" id="tab-dev" onclick="changeTab(this)">.dev</button>
+            <button class="tab" id="tab-me" onclick="changeTab(this)">.me</button>
+            <button class="tab active" id="tab-dev" onclick="changeTab(this)">.dev</button>
             <button class="tab" id="tab-contact" onclick="changeTab(this)">.contact</button>
         </nav>
 
         <content>
-            <div class="tabContent animated me" id="content-me">
+            <div class="tabContent animated hidden me" id="content-me">
                 <h1>Hello.</h1>
                 <p>Je suis Jeremy D. ou Aurock, au choix.</p>
                 <p>J'aime les IDLE game, le vanilla JS, les technos web et ne pas les utiliser.</p>
@@ -26,7 +26,7 @@
                 <p>Sinon, sur mon temps libre, je travaille pour <a href="https://ct2mc.com/">CT2MC</a> en tant que Concepteur Développeur d'Applications.</p>
                 <p>Voilà, A+.</p>
             </div>
-            <div class="tabContent animated hidden project" id="content-dev">
+            <div class="tabContent animated project" id="content-dev">
                 <h1>Projets.</h1>
                 <p>Quand je pète pas les répos des projets en deux, on peut les trouver <a href="https://github.com/aurock-dev" target="_blank">là-bas</a>.</p>
                 <div class="cardWrapper">
