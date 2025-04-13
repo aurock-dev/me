@@ -78,13 +78,11 @@ select {
 
 /* #region -- VARIABLES */
 :root {
-    --contrast: 80%;
-    --grayscale: 30%;
-    --opacity: 0.10;
-
     --primary-color: rgb(243, 160, 35);
     --secondary-color: rgb(0, 0, 0);
     --tertiary-color: rgb(235, 235, 235);
+
+    --shadow:  0px 0px 7px 1px rgba(0,0,0,0.2);
 }
 
 /* #endregion */
@@ -92,22 +90,30 @@ select {
 /* #region -- BASE ELEMENT */
 body {
     font-family: "Poppins", sans-serif;
-    display: grid;
-    grid-template-rows: max-content 1fr;
-    justify-items: center;
-    width: 100vw;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
-    width: 100vw;
-    padding: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 20%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+nav button{
+    width: 100%;
+    padding-top: 10px;
 }
 
 content {
+    height: 100%;
     text-align: center;
+    padding: 1em;
 }
 
 input {
@@ -136,41 +142,7 @@ body .hidden{
 }
 /* #endregion */
 
-/* #region -- BACKGROUND */
-.backgroundImage {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(img/background.jpg);
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    filter:
-        contrast(var(--contrast)) grayscale(var(--grayscale)) opacity(var(--opacity));
-}
-
-/* #endregion */
-
 /* #region -- NAV */
-.leftPanel {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-}
-
-.middlePanel{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0px 20%;
-}
-
-.middlePanel button{
-    width: 100%;
-}
-
 .tab{
     background-color: transparent;
     border: none;
@@ -189,25 +161,16 @@ body .hidden{
     font-weight: bold;
     background-color: transparent;
 }
-
-.rightPanel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-}
-
-.rightPanel i{
-    font-size: 200%;
-}
-
-.rightPanel i:hover{
-    cursor: pointer;
-    color: var(--primary-color);
-}
 /* #endregion */
 
 /* #region -- CONTENT */
+.tabContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .animated {
     animation-name: fadeOutRight;
     animation-duration: 1s;
@@ -225,36 +188,50 @@ body .hidden{
     }
 }
 
+.project{
+    gap: 1em;
+}
+
 .cardWrapper{
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1em;
-    row-gap: 1em;
-    padding: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1em;
 }
 
 .projectCard{
     border-radius: 5px;
     backdrop-filter: blur(4px);
-    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
+}
+
+.projectCard > div:hover{
+    cursor: pointer;
 }
 
 .projectCard img{
+    object-fit: cover;
+    object-position: top;
+    max-height: 15em;
     width: 100%;
-    max-height: 8em;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .projectCard span{
-    padding: 0px 1px;
+    font-style: italic;
+}
+
+.me{
+    gap: 0.5em;
 }
 /* #endregion */
 
 /* #region -- FORM */
 .form {
     align-items: center;
-    min-width: 500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .buttonForm {
@@ -269,6 +246,14 @@ body .hidden{
 @media (max-width: 1000px){
     .cardWrapper{
         grid-template-columns: none;
+    }
+
+    nav {
+        padding: 0px 2%;
+    }
+
+    .projectCard img{
+        max-height: 10em;
     }
 } 
 
