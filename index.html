@@ -4,55 +4,63 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
-        <script src="https://kit.fontawesome.com/d4a44c73dc.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Aurock.dev</title>
     </head>
 
     <body>
-        <div class="backgroundImage"></div>
         <nav>
-            <div class="leftPanel">
-                <h1>Aurock</h1>
-            </div>
-            <div class="middlePanel">
-                <button class="tab active" id="tabMe">.me</button>
-                <button class="tab" id="tabDev">.dev</button>
-                <button class="tab" id="tabContact">.contact</button>
-            </div>
-            <div class="rightPanel">
-                <i class="fa fa-linkedin" id="linkLinkedin"></i>
-                <i class="fa fa-gitlab" id="linkGitlab"></i>
-            </div>
+            <button class="tab active" id="tab-me" onclick="changeTab(this)">.me</button>
+            <button class="tab" id="tab-dev" onclick="changeTab(this)">.dev</button>
+            <button class="tab" id="tab-contact" onclick="changeTab(this)">.contact</button>
         </nav>
 
         <content>
-            <div class="tabContent animated" id="contentMe">
+            <div class="tabContent animated me" id="content-me">
                 <h1>Hello.</h1>
-                <p>Je suis Jeremy Dussol, étudiant en 3ème année à l'EPSI Grenoble.</p>
-                <p>Je suis aussi alternant pour <a href="https://ct2mc.com/">CT2MC</a> en tant que Concepteur Développeur d'Applications.</p>
+                <p>Je suis Jeremy D. ou Aurock, au choix.</p>
+                <p>J'aime les IDLE game, le vanilla JS, les technos web et ne pas les utiliser.</p>
+                <p>J'aime les drapeaux, les panneaux routiers géants, me perdre sur StreetView et trivia sur les départements français.</p>
+                <p>J'aime quand c'est cru, j'aime quand c'est cuit, j'aime le piment d'Espelette.</p>
+                <p>Sinon, sur mon temps libre, je travaille pour <a href="https://ct2mc.com/">CT2MC</a> en tant que Concepteur Développeur d'Applications.</p>
+                <p>Voilà, A+.</p>
             </div>
-            <div class="tabContent animated hidden" id="contentDev">
+            <div class="tabContent animated hidden project" id="content-dev">
                 <h1>Projets.</h1>
+                <p>Quand je pète pas les répos des projets en deux, on peut les trouver <a href="https://github.com/aurock-dev" target="_blank">là-bas</a>.</p>
                 <div class="cardWrapper">
                     <div class="projectCard">
-                        <img src="img/cardimg1.jpg" alt="aurockdev">
-                        <h1><a href="/">aurock.dev</a></h1>
-                        <span>Cliques pour une expérience récursive à couper le souffle.</span>
+                        <div onclick="window.open('https://aurock.dev/')">
+                            <h1>aurock.dev</h1>
+                            <img src="img/cardimg1.jpg" alt="aurockdev">
+                        </div>
+                        <span>Genre l'image n'est pas à jour...</span>
                     </div>
                     <div class="projectCard">
-                        <img src="img/cardimg2.jpg" alt="cflif">
-                        <h1><a href="https://cflif.aurock.dev" target="_blank">CondensedFLIF</a></h1>
+                        <div onclick="window.open('https://cflif.aurock.dev/')">
+                            <h1>CondensedFLIF</h1>
+                            <img src="img/cardimg2.jpg" alt="cflif">
+                        </div>
                         <span>Si Flyff était un IDLE game chiant sur navigateur.</span>
                     </div>
                     <div class="projectCard">
-                        <img src="img/cardimg3.jpg" alt="dragoned">
-                        <h1><a href="https://dragoned.aurock.dev/" target="_blank">Dragon'ed</a></h1>
-                        <span>Les dragons, la bagarre, le bois. En multi, sur l'interweb de ton navigateur.</span>
+                        <div onclick="window.open('https://dragoned.aurock.dev/')">
+                            <h1>Dragon'ed</h1>
+                            <img src="img/cardimg3.jpg" alt="dragoned">
+                        </div>
+                        <span>L'idée est partie de la DA de <a href="https://demonin.com/games/dodecaDragons/" target="_blank">Dodecadragons</a> ...</span>
+                    </div>
+                    <div class="projectCard">
+                        <div onclick="window.open('https://colorle.aurock.dev/')">
+                            <h1>Colorle</h1>
+                            <img src="img/cardimg4.jpg" alt="colorle">
+                        </div>
+                        <span>Forcement la couleur d'aujourd'hui est immonde.</span>
                     </div>
                 </div>
             </div>
-            <div class="tabContent animated hidden" id="contentContact">
+            <div class="tabContent animated hidden" id="content-contact">
                 <form class="form" action="https://formspree.io/f/xoqrnrzy" method="POST">
                     <h1>Contact.</h1>
                     <div>
